@@ -57,8 +57,8 @@ namespace AspDotNetCoreWebApp.Controllers
             var policy = new SharedAccessBlobPolicy()
             {
                 Permissions = SharedAccessBlobPermissions.Write,
-                SharedAccessStartTime = DateTimeOffset.UtcNow.AddDays(-1),
-                SharedAccessExpiryTime = DateTimeOffset.UtcNow.AddDays(1)
+                SharedAccessStartTime = DateTimeOffset.UtcNow.AddMinutes(-5),
+                SharedAccessExpiryTime = DateTimeOffset.UtcNow.AddHours(1)
             };
             var sas = container.GetSharedAccessSignature(policy);
             ViewData["SAS"] = sas;
